@@ -1,0 +1,68 @@
+{% extends 'e_comm_app/mainb.html' %}
+{% block content %}
+        <section class="new-product-area section-padding30">
+            <div class="container">
+                <!-- Section tittle -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="section-tittle mb-70">
+                            <h2 class="heading text-center">New Arrivals</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for products in products %}
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-new-pro mb-30 text-center">
+                            <div class="product-img">
+                                <img src="{{ products.product_image.url }}" width="361px" height="489px">
+                            </div>
+                            <div class="product-caption">
+                                <h3><a href="\product_details/{{ products.slug }}" class=”btn btn-primary”>{{ products.name }}</a></h3>
+                                <h4><p>{{ products.description }}</p></h4>
+                                <span>{{ products.price }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+
+        <!--  New Product End -->
+        <!--? Gallery Area Start -->
+
+        <section class="new-product-area section-padding30">
+            <div class="container">
+                <!-- Section tittle -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="section-tittle mb-70">
+                            <h2 class="heading text-center"> Outdoor </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for outdoor_product in outdoor_product %}
+
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-new-pro mb-30 text-center">
+                            <div class="product-img">
+                                <img src="{{ outdoor_product.product_image.url }}" width="361px" height="489px">
+                            </div>
+                            <div class="product-caption">
+                                <h3><a href="\product_details/{{ outdoor_product.slug }}" class=”btn btn-primary”>{{ outdoor_product.name }}</a></h3>
+                                <h4><p>{{ outdoor_product.description }}</p></h4>
+                                <span>{{ outdoor_product.price }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+{% endblock %}
